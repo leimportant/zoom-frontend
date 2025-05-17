@@ -17,6 +17,13 @@
   color: #222;
 }
 
+.url {
+  word-break: break-word;    /* atau break-all jika perlu */
+  overflow-wrap: anywhere;
+  max-width: 100%;
+  display: block;
+}
+
 .createMeetingFormGroup {
   margin-bottom: 1.25rem;
   display: flex;

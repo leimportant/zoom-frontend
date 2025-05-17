@@ -54,14 +54,19 @@ export default function HomePage() {
               className="bg-white p-5 rounded-xl shadow-md flex flex-col justify-between hover:shadow-lg transition"
             >
               <div>
-                <h2 className="text-xl font-semibold mb-2 text-gray-800">{meeting.topic}</h2>
+               <Link
+                  href={`/meetings/${meeting.id}/view`}
+                  className="text-green-600 hover:text-green-800 font-medium"
+                > <h2 className="text-xl font-semibold mb-2 text-gray-800">{meeting.topic}</h2></Link>
                 <p className="text-sm text-gray-500 mb-1">
                   {new Date(meeting.start_time).toLocaleString()} &bull; {meeting.duration} min
                 </p>
-                {meeting.agenda && (
+               
+                  
+                 {meeting.agenda && (
                   <p className="text-gray-600 mb-4 line-clamp-3">{meeting.agenda}</p>
                 )}
-              </div>
+               </div>
               <div className="flex justify-between items-center mt-auto">
                 <Link
                   href={`/meetings/${meeting.id}/edit`}
@@ -69,6 +74,7 @@ export default function HomePage() {
                 >
                   Edit
                 </Link>
+                
                 <button
                   onClick={() => handleDelete(meeting.id)}
                   className="text-red-600 hover:text-red-800 font-medium"

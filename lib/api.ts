@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { Meeting } from '@/types/meeting';
+import { MeetingView } from '@/types/meeting';
 
 const BASE_URL = 'http://localhost:8080'; // Ganti sesuai backend kamu
 
@@ -9,6 +10,11 @@ export const getMeetings = async (): Promise<Meeting[]> => {
 };
 
 export const getMeetingByID = async (id: string): Promise<Meeting> => {
+  const res = await axios.get(`${BASE_URL}/meetings/${id}`);
+  return res.data;
+};
+
+export const getMeetingViewByID = async (id: string): Promise<MeetingView> => {
   const res = await axios.get(`${BASE_URL}/meetings/${id}`);
   return res.data;
 };
